@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel · Estúdio Desavesso</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3D1B6B">
+<link rel="icon" href="fotos/estudio-perfil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilo.css?v=20260925160933">
+<link rel="stylesheet" href="assets/admin.css?v=20260925160933">
+</head>
+<body class="painel-pg">
+
+<div id="faixa-demo" class="faixa-demo" hidden>
+  <b>Modo demonstração.</b> Pedidos de exemplo guardados neste aparelho, marcados "(exemplo)". Sem login.
+</div>
+
+<!-- ---------- LOGIN ---------- -->
+<div class="wrap login" id="tela-login" hidden>
+  <div class="cartao">
+    <p class="olho">Estúdio Desavesso</p>
+    <h1 class="login-tit">Painel do estúdio</h1>
+    <form id="form-login">
+      <div class="campos">
+        <div class="campo">
+          <label for="lg-email">E-mail</label>
+          <input id="lg-email" type="email" autocomplete="username" required>
+        </div>
+        <div class="campo">
+          <label for="lg-senha">Senha</label>
+          <input id="lg-senha" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="btn btn-prata btn-bloco" type="submit">Entrar</button>
+      </div>
+    </form>
+    <div id="msg-login"></div>
+  </div>
+</div>
+
+<!-- ---------- PAINEL ---------- -->
+<div id="tela-painel" hidden>
+  <header class="adm-topo">
+    <div class="wrap adm-topo-in">
+      <a class="marca" href="index.html" title="Ver o site">
+        <img src="fotos/estudio-perfil.jpg" alt="" width="46" height="46">
+        <span><b>PAINEL</b><small id="quem-logado">Estúdio Desavesso</small></span>
+      </a>
+      <a class="btn btn-linha mini so-largo" href="index.html" target="_blank" rel="noopener">Ver o site</a>
+      <button class="btn btn-linha mini" id="btn-sair" type="button">Sair</button>
+    </div>
+    <nav class="wrap adm-abas" role="tablist" aria-label="Seções do painel">
+      <button class="adm-aba" role="tab" data-aba="geral" aria-selected="true">Visão geral</button>
+      <button class="adm-aba" role="tab" data-aba="pedidos" aria-selected="false">Pedidos <span class="bolha" id="bolha-novos"></span></button>
+      <button class="adm-aba" role="tab" data-aba="agenda" aria-selected="false">Agenda</button>
+      <button class="adm-aba" role="tab" data-aba="artistas" aria-selected="false">Artistas</button>
+      <button class="adm-aba" role="tab" data-aba="relatorio" aria-selected="false">Relatório</button>
+      <button class="adm-aba" role="tab" data-aba="flash" aria-selected="false">Flash Day</button>
+    </nav>
+  </header>
+
+  <main class="wrap adm-main">
+    <div class="filtro-linha">
+      <span class="rotulo-campo" id="filtro-rot">Artista</span>
+      <div class="filtro" id="filtro" role="group" aria-labelledby="filtro-rot"></div>
+    </div>
+
+    <!-- VISÃO GERAL -->
+    <section class="adm-painel" data-painel="geral" data-ativa>
+      <h1 class="adm-tit" id="geral-tit">Hoje</h1>
+      <div class="kpis" id="kpis"></div>
+      <div class="geral-cols">
+        <div class="bloco">
+          <div class="bloco-cab"><h2>Agenda de hoje</h2><button class="lnk" type="button" data-ir="agenda">Ver semana →</button></div>
+          <div id="lista-hoje"></div>
+        </div>
+        <div class="bloco">
+          <div class="bloco-cab"><h2>Pedidos novos</h2><button class="lnk" type="button" data-ir="pedidos">Ver funil →</button></div>
+          <div id="lista-novos"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PEDIDOS / FUNIL -->
+    <section class="adm-painel" data-painel="pedidos">
+      <div class="adm-cab">
+        <h1 class="adm-tit">Pedidos de orçamento</h1>
+        <p class="adm-sub">Toque num pedido para ver tudo, responder no WhatsApp, registrar o orçamento e marcar a sessão.</p>
+      </div>
+      <div class="etapas-nav" id="etapas-nav" role="tablist" aria-label="Etapas do funil"></div>
+      <div class="kanban" id="kanban"></div>
+    </section>
+
+    <!-- AGENDA -->
+    <section class="adm-painel" data-painel="agenda">
+      <div class="adm-cab">
+        <h1 class="adm-tit">Agenda da semana</h1>
+        <div class="semana-nav">
+          <button class="btn btn-linha mini" id="sem-menos" type="button" aria-label="Semana anterior">←</button>
+          <b id="sem-titulo"></b>
+          <button class="btn btn-linha mini" id="sem-mais" type="button" aria-label="Próxima semana">→</button>
+          <button class="btn btn-linha mini" id="sem-hoje" type="button">Hoje</button>
+        </div>
+      </div>
+      <div class="semana" id="semana"></div>
+
+      <div class="geral-cols" style="margin-top:2rem">
+        <div class="bloco">
+          <div class="bloco-cab"><h2>Bloquear folga ou viagem</h2></div>
+          <form id="form-bloqueio">
+            <div class="campos">
+              <div class="campos-2">
+                <div class="campo"><label for="bl-quem">Artista</label><select id="bl-quem"></select></div>
+                <div class="campo"><label for="bl-motivo-tipo">Motivo</label>
+                  <select id="bl-motivo-tipo"><option>Folga</option><option>Viagem</option><option>Evento</option><option>Outro</option></select></div>
+              </div>
+              <div class="campos-2">
+                <div class="campo"><label for="bl-data">De</label><input id="bl-data" type="date" required></div>
+                <div class="campo"><label for="bl-ate-dia">Até <small>(opcional)</small></label><input id="bl-ate-dia" type="date"></div>
+              </div>
+              <div class="campo"><label for="bl-motivo">Observação <small>(opcional)</small></label><input id="bl-motivo" type="text" placeholder="Ex: convenção em São Paulo"></div>
+              <button class="btn btn-prata" type="submit">Bloquear na agenda</button>
+            </div>
+          </form>
+          <div id="msg-bloqueio"></div>
+        </div>
+        <div class="bloco">
+          <div class="bloco-cab"><h2>Folgas e viagens marcadas</h2></div>
+          <div id="lista-bloqueios"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTISTAS -->
+    <section class="adm-painel" data-painel="artistas">
+      <div class="adm-cab">
+        <h1 class="adm-tit">Artistas</h1>
+        <p class="adm-sub">Agenda fechada: o artista continua no site, mas não recebe pedido com data. As especialidades aparecem na página dele.</p>
+      </div>
+      <div class="artistas-adm" id="artistas-adm"></div>
+    </section>
+
+    <!-- RELATÓRIO -->
+    <section class="adm-painel" data-painel="relatorio">
+      <div class="adm-cab">
+        <h1 class="adm-tit">Relatório do mês</h1>
+        <div class="semana-nav">
+          <button class="btn btn-linha mini" id="mes-menos" type="button" aria-label="Mês anterior">←</button>
+          <b id="mes-titulo"></b>
+          <button class="btn btn-linha mini" id="mes-mais" type="button" aria-label="Próximo mês">→</button>
+        </div>
+      </div>
+      <div class="kpis" id="rel-kpis"></div>
+      <div class="geral-cols">
+        <div class="bloco"><div class="bloco-cab"><h2>Pedidos por artista</h2></div><div id="rel-artista"></div></div>
+        <div class="bloco"><div class="bloco-cab"><h2>Pedidos por estilo</h2></div><div id="rel-estilo"></div></div>
+      </div>
+      <div class="bloco" style="margin-top:1.4rem"><div class="bloco-cab"><h2>Funil do mês</h2></div><div id="rel-funil"></div></div>
+    </section>
+
+    <!-- FLASH DAY -->
+    <section class="adm-painel" data-painel="flash">
+      <div class="adm-cab">
+        <h1 class="adm-tit">Flash Day</h1>
+        <p class="adm-sub" id="flash-sub"></p>
+      </div>
+      <div class="kpis" id="flash-kpis"></div>
+      <div class="geral-cols">
+        <div class="bloco">
+          <div class="bloco-cab"><h2>Interessados</h2></div>
+          <div id="lista-flash"></div>
+        </div>
+        <div class="bloco">
+          <div class="bloco-cab"><h2>Anotar interessado</h2></div>
+          <form id="form-flash">
+            <div class="campos">
+              <div class="campo"><label for="fl-nome">Nome</label><input id="fl-nome" type="text" required></div>
+              <div class="campos-2">
+                <div class="campo"><label for="fl-tipo">Tipo</label><select id="fl-tipo"><option>Expositor</option><option>Quer tatuar</option><option>Quer perfurar</option><option>Outro</option></select></div>
+                <div class="campo"><label for="fl-contato">Contato</label><input id="fl-contato" type="text" placeholder="WhatsApp ou @"></div>
+              </div>
+              <div class="campo"><label for="fl-obs">Observação</label><input id="fl-obs" type="text"></div>
+              <button class="btn btn-prata" type="submit">Anotar</button>
+            </div>
+          </form>
+          <div id="msg-flash"></div>
+          <p class="adm-sub" style="margin-top:1rem">As inscrições de expositores chegam pelo <a id="flash-form" target="_blank" rel="noopener">Google Form do estúdio</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- detalhe do pedido -->
+<dialog class="gaveta" id="gaveta" aria-labelledby="gv-nome">
+  <div class="gaveta-cab">
+    <div>
+      <p class="gv-cod" id="gv-cod"></p>
+      <h2 id="gv-nome"></h2>
+    </div>
+    <button type="button" class="btn btn-linha mini" id="gv-fechar">Fechar</button>
+  </div>
+  <div class="gaveta-corpo" id="gv-corpo"></div>
+</dialog>
+
+<dialog class="lupa" id="lupa" aria-labelledby="lupa-titulo">
+  <div class="lupa-topo"><b id="lupa-titulo"></b><button type="button" class="btn btn-linha mini">Fechar</button></div>
+  <img id="lupa-img" alt="">
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js?v=20260925160933"></script>
+<script src="assets/demo.js?v=20260925160933"></script>
+<script src="assets/admin.js?v=20260925160933"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artista · Estúdio Desavesso</title>
+<meta name="description" content="Portfólio e pedido de orçamento com os artistas do Estúdio Desavesso, no Rio Vermelho, Salvador.">
+<meta name="theme-color" content="#3D1B6B">
+<link rel="icon" href="fotos/estudio-perfil.jpg">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Artistas do Estúdio Desavesso">
+<meta property="og:description" content="Veja o portfólio e peça seu orçamento direto com o artista.">
+<meta property="og:image" content="fotos/estudio-perfil.jpg">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilo.css?v=20260925160933">
+</head>
+<body>
+
+<div id="faixa-demo" class="faixa-demo" hidden>
+  <b>Versão de demonstração.</b> O pedido funciona de verdade, mas fica guardado só neste aparelho até ligarmos o banco de dados.
+</div>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="marca" href="index.html" aria-label="Estúdio Desavesso, início">
+      <img src="fotos/estudio-perfil.jpg" alt="" width="46" height="46">
+      <span><b>DESAVESSO</b><small>Estúdio coletivo · Rio Vermelho</small></span>
+    </a>
+    <nav class="menu" aria-label="Seções">
+      <a href="index.html#equipe">Equipe</a>
+      <a href="index.html#agendar">Orçamento</a>
+      <a href="index.html#eventos">Flash Day</a>
+      <a href="index.html#local">Onde</a>
+    </nav>
+    <a class="btn btn-prata mini" href="index.html#agendar"><span class="so-largo">Pedir </span>orçamento</a>
+  </div>
+</header>
+
+<main>
+  <!-- slug inexistente: mostra a equipe -->
+  <section class="secao" id="art-nao-achei" hidden>
+    <div class="wrap">
+      <p class="olho">Equipe</p>
+      <h2>Escolha um artista</h2>
+      <p class="sub">Não achei esse artista. Estes são os artistas do estúdio:</p>
+      <div class="equipe" id="lista-equipe"></div>
+    </div>
+  </section>
+
+  <div id="artista-pagina" hidden>
+    <section class="art-capa" id="art-capa">
+      <div class="wrap">
+        <div class="art-in">
+          <img class="art-av" id="art-av" src="" alt="" width="170" height="170">
+          <div>
+            <a class="voltar-equipe" href="index.html#equipe">← Toda a equipe</a>
+            <h1 id="art-nome"></h1>
+            <a class="arroba" id="art-arroba" target="_blank" rel="noopener"></a>
+            <p class="linha" id="art-linha"></p>
+            <div class="estilos" id="art-estilos" aria-label="Estilos e especialidades"></div>
+            <div class="acoes">
+              <a class="btn btn-prata" id="art-pedir" href="index.html#agendar">Pedir orçamento</a>
+              <span id="art-extras" style="display:contents"></span>
+              <button class="btn btn-linha" id="art-compartilhar" type="button">Compartilhar página</button>
+            </div>
+            <p class="compartilhado" id="art-compartilhado" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="wrap">
+        <p class="olho">Portfólio</p>
+        <h2 id="art-port-titulo">Trabalhos</h2>
+        <div class="portfolio" id="art-portfolio"></div>
+        <div class="acoes"><a class="btn btn-linha" id="art-mais" target="_blank" rel="noopener">Ver mais no Instagram</a></div>
+
+        <div class="cartao" id="art-perf" style="margin-top:2.5rem;max-width:40rem" hidden>
+          <h3>Perfuração corporal</h3>
+          <p style="margin:.4rem 0 .2rem">A Leti também faz perfuração corporal em titânio. No pedido, escolha "Perfuração corporal" como tipo de sessão. Valor sob orçamento.</p>
+          <div class="acoes"><a class="btn btn-prata" href="index.html?artista=leti#agendar">Agendar perfuração</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao equipe-sec">
+      <div class="wrap">
+        <p class="olho">Equipe</p>
+        <h2 id="art-outros-titulo">Outros artistas</h2>
+        <div class="equipe" id="lista-outros"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-in">
+      <div style="max-width:22rem">
+        <a class="marca" href="index.html" style="margin-bottom:.9rem">
+          <img src="fotos/estudio-perfil.jpg" alt="" width="46" height="46">
+          <span><b>DESAVESSO</b><small>Estúdio coletivo</small></span>
+        </a>
+        <p>Rua Tupinambás, 423, Rio Vermelho, Salvador — BA. Terça a domingo.</p>
+      </div>
+      <div>
+        <b class="rodape-titulo">Navegar</b>
+        <ul class="rodape-links">
+          <li><a href="index.html#agendar">Pedir orçamento</a></li>
+          <li><a href="index.html#eventos">Flash Day</a></li>
+          <li><a href="index.html#local">Como chegar</a></li>
+          <li><a href="https://www.instagram.com/estudiodesavesso/" target="_blank" rel="noopener">@estudiodesavesso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="creditos">
+      <span>© <span id="ano"></span> Estúdio Desavesso</span>
+    </div>
+  </div>
+</footer>
+
+<a class="flutua" id="art-flutua" href="index.html#agendar"><span></span> Pedir orçamento</a>
+
+<script src="assets/config.js?v=20260925160933"></script>
+<script src="assets/site.js?v=20260925160933"></script>
+</body>
+</html>
