@@ -80,7 +80,30 @@ window.TV = {
   /* ---- Equipe (páginas artista.html?a=<slug>) ------------------------
      Só o que está no Instagram de cada um. "whatsapp" vazio = A CONFIRMAR.
   ------------------------------------------------------------------ */
+  // Ordem = ordem em todo o site e no painel. Mitani vem primeiro (pedido comercial).
   artistas: [
+    {
+      slug: 'mitani', nome: 'Mitani', instagram: 'mitani.ink', whatsapp: '5571982809393',
+      whatsappVisivel: '(71) 98280-9393',
+      foto: 'fotos/mitani-perfil.jpg', cor: 'preto',
+      linha: 'Tatuador e artista visual · neotribal, cyber e blackwork',
+      estilos: ['Neotribal', 'Cyber', 'Blackwork', 'Freehand (à mão livre)'],
+      frase: 'Mais do que um trabalho, a tatuagem é minha forma de me expressar no mundo.',
+      bio: [
+        '24 anos, nascido e criado em Salvador. Tatua há quase 3 anos.',
+        'Faz freehand, à mão livre.',
+        'Guest recorrente em Barcelona, com full legs e projetos em andamento.',
+        'Hablo español: atende clientes de Barcelona.'
+      ],
+      extra: { rotulo: 'Site do Mitani', url: 'https://mitaniink.carrd.co/' },
+      fotos: [
+        { src: 'fotos/mitani-1.jpg', alt: 'Full leg neotribal em preto, do tornozelo ao joelho.', pos: '45% 64%' },
+        { src: 'fotos/mitani-4.jpg', alt: 'Neotribal em preto no antebraço.' },
+        { src: 'fotos/mitani-5.jpg', alt: 'Máscara hannya em blackwork no ombro.' },
+        { src: 'fotos/mitani-3.jpg', alt: 'Desenho neotribal do Mitani em nanquim.' },
+        { src: 'fotos/mitani-6.jpg', alt: 'Desenho cyber em lilás num caderno.' }
+      ]
+    },
     {
       slug: 'leti', nome: 'Leti Mollicone', instagram: 'letimollicone', whatsapp: '',
       foto: 'fotos/leti-perfil.jpg', cor: 'laranja',
@@ -151,7 +174,7 @@ window.TV = {
   /* ---- Estilos e técnica que aparecem no pedido ---------------------
      Tirados das bios dos artistas. A CONFIRMAR com o estúdio.
   ------------------------------------------------------------------ */
-  estilos: ['Blackwork', 'Fineline', 'Botânica', 'Ornamental', 'Colorida', 'Flash (desenho pronto)', 'Arte autoral do artista', 'Trago meu desenho', 'Ainda não sei'],
+  estilos: ['Neotribal', 'Cyber', 'Freehand (à mão livre)', 'Blackwork', 'Fineline', 'Botânica', 'Ornamental', 'Colorida', 'Flash (desenho pronto)', 'Arte autoral do artista', 'Trago meu desenho', 'Ainda não sei'],
   tecnicas: ['Com máquina', 'Handpoke (sem máquina)', 'Tanto faz']
 };
 

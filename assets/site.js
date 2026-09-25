@@ -31,7 +31,7 @@
     var c = el('a', 'membro cor-' + (a.cor || 'roxo'));
     c.href = 'artista.html?a=' + encodeURIComponent(a.slug);
     var fig = el('div', 'membro-img');
-    var im = el('img'); im.src = a.fotos[0].src; im.alt = a.fotos[0].alt; im.loading = 'lazy';
+    var im = el('img'); im.src = a.fotos[0].src; im.alt = a.fotos[0].alt;
     if (a.fotos[0].pos) im.style.objectPosition = a.fotos[0].pos;
     var av = el('img', 'av'); av.src = a.foto; av.alt = ''; av.loading = 'lazy';
     fig.appendChild(im); fig.appendChild(av);
@@ -93,6 +93,12 @@
   arroba.textContent = '@' + a.instagram;
   arroba.href = 'https://www.instagram.com/' + a.instagram + '/';
   $('#art-linha').textContent = a.linha;
+  if (a.frase) { $('#art-frase').textContent = '“' + a.frase + '”'; $('#art-frase').hidden = false; }
+  if (a.bio) {
+    var bio = $('#art-bio');
+    a.bio.forEach(function (l) { bio.appendChild(el('li', null, l)); });
+    $('#art-sobre').hidden = false;
+  }
   var est = $('#art-estilos');
   a.estilos.forEach(function (e) { est.appendChild(el('span', null, e)); });
 

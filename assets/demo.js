@@ -8,7 +8,7 @@
   'use strict';
   var CFG = window.TV;
   if (!CFG || !CFG.modoDemo) return;
-  var VERSAO = 'dv_demo_semeado_v3';
+  var VERSAO = 'dv_demo_semeado_v4';
   try { if (localStorage.getItem(VERSAO)) return; } catch (e) { return; }
 
   function iso(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
@@ -29,6 +29,15 @@
   }
   // [artista, serviço, dia, início, cliente, etapa, obs, anexos, valor, sinal, sinal pago, criado há n dias]
   var L = [
+    // Mitani: um pouco mais de movimento que os outros (primeiro da equipe)
+    ['mitani', 'orcamento', dia(1), '15:30', 'Heitor S.', 'novo', obsTattoo('Neotribal', 'Com máquina', 'Perna / panturrilha', 'Fechamento (braço, perna ou costas)', 'Full leg neotribal, parecido com o da foto'), ['fotos/mitani-1.jpg'], 0, 0, false, 0],
+    ['mitani', 'sessao-media', dia(3), '13:00', 'Lara M.', 'novo', obsTattoo('Cyber', 'Com máquina', 'Antebraço', '10 a 20 cm', 'Algo cyber no antebraço, pode ser freehand'), ['fotos/mitani-6.jpg'], 0, 0, false, -1],
+    ['mitani', 'orcamento', dia(2), '17:00', 'Sofia R.', 'conversa', obsTattoo('Freehand (à mão livre)', 'Com máquina', 'Braço', '10 a 20 cm', 'Quero que ele desenhe direto no braço'), [], 0, 0, false, -2],
+    ['mitani', 'sessao-longa', dia(8), '10:00', 'Yuri A.', 'conversa', obsTattoo('Blackwork', 'Com máquina', 'Costas', 'Mais de 20 cm', 'Peça grande nas costas, blackwork'), [], 0, 0, false, -3],
+    ['mitani', 'sessao-media', dia(6), '14:00', 'Enzo P.', 'orcado', obsTattoo('Blackwork', 'Com máquina', 'Ombro', '10 a 20 cm', 'Máscara hannya no ombro'), ['fotos/mitani-5.jpg'], 90000, 20000, false, -4],
+    ['mitani', 'sessao-pequena', dia(0), '16:30', 'Kaique N.', 'marcado', obsTattoo('Neotribal', 'Com máquina', 'Antebraço', '10 a 20 cm', 'Neotribal no antebraço'), ['fotos/mitani-4.jpg'], 50000, 10000, true, -7],
+    ['mitani', 'sessao-longa', dia(5), '10:00', 'Bruna T.', 'marcado', obsTattoo('Neotribal', 'Com máquina', 'Perna / panturrilha', 'Fechamento (braço, perna ou costas)', 'Continuação da perna neotribal'), [], 160000, 40000, true, -9],
+    ['mitani', 'sessao-media', dia(-5), '13:00', 'Otávio F.', 'concluido', obsTattoo('Blackwork', 'Com máquina', 'Braço', '10 a 20 cm', 'Blackwork no braço'), [], 85000, 20000, true, -12],
     ['leti', 'orcamento', dia(2), '15:00', 'Ana Clara', 'novo', obsTattoo('Arte autoral do artista', 'Handpoke (sem máquina)', 'Antebraço', '5 a 10 cm', 'Uma laranja com folha, traço solto, sem cor', ['Primeira tattoo: Sim']), ['fotos/leti-1.jpg'], 0, 0, false, 0],
     ['beco', 'sessao-pequena', dia(4), '14:00', 'Rafael M.', 'novo', obsTattoo('Flash (desenho pronto)', 'Com máquina', 'Perna / panturrilha', '10 a 20 cm', 'Quero o flash do cachorro bravo, do lado da tattoo que já tenho'), ['fotos/beco-4.jpg'], 0, 0, false, -1],
     ['leti', 'perfuracao', dia(3), '16:00', 'Júlia P.', 'novo', 'Perfuração: hélix na orelha esquerda', [], 0, 0, false, 0],

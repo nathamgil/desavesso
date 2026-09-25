@@ -434,6 +434,11 @@ h3{font-size:1.3rem}
 .art-capa.cor-laranja{background:#7A2A06}
 .art-capa.cor-verde{background:#1F3B12}
 .art-capa.cor-lilas{background:#2B1E57}
+.art-capa.cor-preto{background:var(--tinta)}
+.art-frase{font-family:var(--display);font-size:clamp(1.1rem,2.6vw,1.45rem);line-height:1.25;color:var(--verde);max-width:36rem;margin-top:.7rem}
+.art-sobre{padding-bottom:0}
+.art-bio{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.art-bio li{background:var(--branco);border:var(--traco);border-radius:6px;box-shadow:var(--sombra);padding:1rem 1.1rem;font-weight:600;font-size:1.05rem}
 .art-in{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;padding-block:clamp(2rem,5vw,3.5rem)}
 .art-av{width:170px;height:170px;border-radius:50%;border:4px solid var(--papel);box-shadow:6px 6px 0 var(--tinta);object-fit:cover;background:var(--papel)}
 .art-capa .voltar-equipe{display:inline-block;font-family:var(--mono);font-weight:700;margin-bottom:.8rem;text-underline-offset:3px;padding:.3rem 0}
@@ -444,7 +449,7 @@ h3{font-size:1.3rem}
 .art-capa .estilos span{background:var(--papel);color:var(--tinta)}
 .art-capa .acoes .btn{border-color:var(--tinta)}
 @media(max-width:700px){ .art-in{grid-template-columns:1fr;gap:1.2rem} .art-av{width:120px;height:120px} }
-.portfolio{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.4rem}
+.portfolio{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.4rem}
 .portfolio figure{background:var(--branco);border:var(--traco);box-shadow:var(--sombra);padding:8px}
 .portfolio figure:nth-child(odd){transform:rotate(-.8deg)}
 .portfolio figure:nth-child(even){transform:rotate(.8deg)}
